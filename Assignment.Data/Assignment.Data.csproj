@@ -4,6 +4,10 @@
     <ProjectReference Include="..\Assignment.Core\Assignment.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="RestSharp" Version="106.11.4" />
+  </ItemGroup>
+
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
