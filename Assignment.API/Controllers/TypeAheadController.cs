@@ -25,7 +25,14 @@ namespace Assignment.API
             string types = (string)HttpContext.Request.Query["types"];
             bool includeAll = Convert.ToBoolean((string)HttpContext.Request.Query["types"]);
 
-            return Ok(await _service.GetAllLocationsAsync(partnerId, searchQuery, types, includeAll));
+            try
+            {
+                return Ok(await _service.GetAllLocationsAsync(partnerId, searchQuery, types, includeAll));
+            }
+            catch(Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
     }
 }

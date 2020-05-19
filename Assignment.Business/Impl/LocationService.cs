@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Assignment.Core;
@@ -14,7 +15,14 @@ namespace Assignment.Business
         }
         public async Task<List<Location>> GetAllLocationsAsync(int PartnerId, string SearchQuery, string Types = null, bool IncludeAll = false)
         {
-            return new List<Location>(await _Locationrepo.GetAllLocationsAsync(PartnerId, SearchQuery, Types, IncludeAll));
+            try
+            {
+                return new List<Location>(await _Locationrepo.GetAllLocationsAsync(PartnerId, SearchQuery, Types, IncludeAll));
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
             
         }
     }
