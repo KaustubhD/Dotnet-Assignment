@@ -4,9 +4,9 @@ using System.Threading.Tasks;
 using Assignment.Core;
 using RestSharp;
 
-public class TypeAheadLocation: ITypeAheadLocation
+public class TypeAheadLocationRepository: ITypeAheadLocationRepository
 {
-    public TypeAheadLocation()
+    public TypeAheadLocationRepository()
     {
 
     }
