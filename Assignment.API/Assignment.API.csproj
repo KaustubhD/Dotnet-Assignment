@@ -10,6 +10,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Assignment.Core\Assignment.Core.csproj" />
+    <ProjectReference Include="..\Assignment.Business\Assignment.Business.csproj" />
+    <ProjectReference Include="..\Assignment.Root\Assignment.Root.csproj" />
   </ItemGroup>
 
 
