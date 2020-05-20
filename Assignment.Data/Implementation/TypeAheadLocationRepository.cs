@@ -20,16 +20,7 @@ namespace Assignment.Data
             _client.ThrowOnDeserializationError = true;
             var request = new RestRequest("Typeahead/Locations", Method.GET ,DataFormat.Json);
 
-            request.AddParameter("partnerid", param.PartnerId);
-            request.AddParameter("searchTerm", param.SearchTerm);
-            if(!string.IsNullOrEmpty(param.Types))
-            {
-                request.AddParameter("types", param.Types);
-            }
-            if(param.IncludeAll.HasValue)
-            {
-                request.AddParameter("includeAll", param.IncludeAll);
-            }
+            request.AddObject(param);
             
             var response = await _client.ExecuteAsync<List<Location>>(request);
             if(response.StatusCode != HttpStatusCode.OK)
