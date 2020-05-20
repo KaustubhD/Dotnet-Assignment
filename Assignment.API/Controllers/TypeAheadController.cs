@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using Assignment.Business;
+using Assignment.Core;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,16 +19,11 @@ namespace Assignment.API
 
         [HttpGet]
         [Route("locations")]
-        public async Task<IActionResult> GetTypeHeadHandler()
+        public async Task<IActionResult> GetTypeHeadHandler([FromQuery]LocationParameters param)
         {
-            int partnerId = Convert.ToInt32((string)HttpContext.Request.Query["partnerid"]);
-            string searchQuery = (string)HttpContext.Request.Query["searchTerm"];
-            string types = (string)HttpContext.Request.Query["types"];
-            bool includeAll = Convert.ToBoolean((string)HttpContext.Request.Query["types"]);
-
             try
             {
-                return Ok(await _service.GetAllLocationsAsync(partnerId, searchQuery, types, includeAll));
+                return Ok(await _service.GetAllLocationsAsync(param));
             }
             catch(Exception e)
             {

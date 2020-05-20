@@ -7,6 +7,6 @@ namespace Assignment.Business
 {
     public interface ILocationService
     {
-        Task<List<Location>> GetAllLocationsAsync(int PartnerId, string SearchQuery, string Types, bool IncludeAll);
+        Task<List<Location>> GetAllLocationsAsync(LocationParameters p);
     }
 }

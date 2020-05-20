@@ -13,11 +13,11 @@ namespace Assignment.Business
         {
             _Locationrepo = repo;
         }
-        public async Task<List<Location>> GetAllLocationsAsync(int PartnerId, string SearchQuery, string Types = null, bool IncludeAll = false)
+        public async Task<List<Location>> GetAllLocationsAsync(LocationParameters param)
         {
             try
             {
-                return new List<Location>(await _Locationrepo.GetAllLocationsAsync(PartnerId, SearchQuery, Types, IncludeAll));
+                return new List<Location>(await _Locationrepo.GetAllLocationsAsync(param));
             }
             catch(Exception e)
             {
