@@ -5,22 +5,16 @@ using RestSharp;
 
 namespace Assignment.Data
 {
-    public sealed class RestClientRepository: IRestClientRepository
+    public class RestClientRepository: IRestClientRepository
     {
-        private static readonly RestClientRepository Instance = new RestClientRepository();
-        private static readonly RestClient _client = new RestClient("https://sprint-api.newhomesource.com/api/v2");
+        private static readonly RestClient _client;
         static RestClientRepository()
         {
+            _client = new RestClient("https://sprint-api.newhomesource.com/api/v2");
         }
-        private RestClientRepository()
+        public RestClientRepository()
         {
-        }
-        public static RestClientRepository instance
-        {
-            get
-            {
-                return Instance;
-            }
+
         }
         public async Task<T> SendRequestAsync<T>(RestRequest request)
         {
