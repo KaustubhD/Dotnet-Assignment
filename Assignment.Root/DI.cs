@@ -15,6 +15,7 @@ namespace Assignment.Root
         {
             services.AddScoped<ITypeAheadLocationRepository, TypeAheadLocationRepository>();
             services.AddScoped<ILocationService, LocationService>();
+            services.AddSingleton<IRestClientRepository, RestClientRepository>();
         }
     }
 }

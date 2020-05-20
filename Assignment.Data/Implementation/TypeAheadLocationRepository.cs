@@ -9,25 +9,25 @@ namespace Assignment.Data
 {
     public class TypeAheadLocationRepository: ITypeAheadLocationRepository
     {
-        private readonly RestClient _client;
-        public TypeAheadLocationRepository()
+        private readonly IRestClientRepository _http;
+        public TypeAheadLocationRepository(IRestClientRepository http)
         {
-            _client = new RestClient("https://sprint-api.newhomesource.com/api/v2");
+            _http = http;
         }
 
         public async Task<ICollection<Location>> GetAllLocationsAsync(LocationParameters param)
         {
-            _client.ThrowOnDeserializationError = true;
             var request = new RestRequest("Typeahead/Locations", Method.GET ,DataFormat.Json);
-
             request.AddObject(param);
             
-            var response = await _client.ExecuteAsync<List<Location>>(request);
-            if(response.StatusCode != HttpStatusCode.OK)
+            try
             {
-                throw new Exception(response.Content);
+                return await _http.SendRequestAsync<List<Location>>(request);
             }
-            return response.Data;
+            catch(Exception e)
+            {
+                throw e;
+            }
         }
     }
 }
