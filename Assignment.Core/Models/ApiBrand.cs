@@ -38,7 +38,7 @@ namespace Assignment.Core
         public string FacebookWidget { get; set; }
         public string BrandUrl { get; set; }
         public string ContactEmail { get; set; }
-        // public ApiCommunityResultV2 Location { get; set; }
+        public ApiCommunityResultV2 Location { get; set; }
         public bool HasBuilderReviews { get; set; }
     }
 }

@@ -106,9 +106,9 @@ namespace Assignment.Core
         public List<ApiInteractiveMedia> IntMedia { get; set; }
         public List<ApiCustomAmenity> CustomAmenities { get; set; }
         public List<ApiHomeOption> HomeOptions { get; set; }
-        // public List<ApiSchoolDistrict> Schools { get; set; }
-        // public List<ApiAmenity> Amenities { get; set; }
-        // public List<ApiUtility> Utilities { get; set; }
+        public List<ApiSchoolDistrict> Schools { get; set; }
+        public List<ApiAmenity> Amenities { get; set; }
+        public List<ApiUtility> Utilities { get; set; }
         public bool IsActive { get; set; }
         public string SalesOffAddr { get; set; }
         public string SalesOffAddr2 { get; set; }
@@ -126,7 +126,7 @@ namespace Assignment.Core
         public DateTime LastModified { get; set; }
         public string CommunityMap { get; set; }
         public string SpecSaleStatus { get; set; }
-        // public List<ApiSalesAgent> Agents { get; set; }
+        public List<ApiSalesAgent> Agents { get; set; }
         public float AgentCommision { get; set; }
         public int Adult { get; set; }
         public int AgeRestricted { get; set; }
@@ -136,23 +136,23 @@ namespace Assignment.Core
         public string SpecificationUrl { get; set; }
         public string FulfilmentCode { get; set; }
         public int PreferredScore { get; set; }
-        // public List<ApiBrochure> Brochures { get; set; }
-        // public List<BookmarkAttribute> Bookmarks { get; set; }
+        public List<ApiBrochure> Brochures { get; set; }
+        public List<BookmarkAttribute> Bookmarks { get; set; }
         public bool OutOfCommunityFlag { get; set; }
         public string Server { get; set; }
-        // public List<ApiFeesAndRates> FeesAndRates { get; set; }
+        public List<ApiFeesAndRates> FeesAndRates { get; set; }
         public Exception Error { get; set; }
         public int OwnerPartner { get; set; }
         public string TranslationHomeId { get; set; }
         public string TranslationCommId { get; set; }
-        // public List<ApiUrgencyResponse> UrgencyData { get; set; }
+        public List<ApiUrgencyResponse> UrgencyData { get; set; }
         public string BasicListingTypeCode { get; set; }
-        // public List<IVerboseLogger> VerboseLogger { get; set; }
+        public List<IVerboseLogger> VerboseLogger { get; set; }
         public string WebBugUrl { get; set; }
         public string YearBuilt { get; set; }
         public int AgentId { get; set; }
-        // public ApiAugmentedReality AugmentedRealityHomeViewer { get; set; }
-        // public ApiAugmentedReality AugmentedRealityHomeOnLot { get; set; }
+        public ApiAugmentedReality AugmentedRealityHomeViewer { get; set; }
+        public ApiAugmentedReality AugmentedRealityHomeOnLot { get; set; }
 
         public ApiHome()
         {
@@ -165,15 +165,15 @@ namespace Assignment.Core
             IntMedia = new List<ApiInteractiveMedia>();
             CustomAmenities = new List<ApiCustomAmenity>();
             HomeOptions = new List<ApiHomeOption>();
-            // Schools = new List<ApiSchoolDistrict>();
-            // Amenities = new List<ApiAmenity>();
-            // Utilities = new List<ApiUtility>();
-            // Agents = new List<ApiSalesAgent>();
-            // Brochures = new List<ApiBrochure>();
-            // Bookmarks = new List<BookmarkAttribute>();
-            // FeesAndRates = new List<ApiFeesAndRates>();
-            // UrgencyData = new List<ApiUrgencyResponse>();
-            // VerboseLogger = new List<IVerboseLogger>();
+            Schools = new List<ApiSchoolDistrict>();
+            Amenities = new List<ApiAmenity>();
+            Utilities = new List<ApiUtility>();
+            Agents = new List<ApiSalesAgent>();
+            Brochures = new List<ApiBrochure>();
+            Bookmarks = new List<BookmarkAttribute>();
+            FeesAndRates = new List<ApiFeesAndRates>();
+            UrgencyData = new List<ApiUrgencyResponse>();
+            VerboseLogger = new List<IVerboseLogger>();
         }
     }
 }
