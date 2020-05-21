@@ -13,14 +13,14 @@ namespace Assignment.Data
         {
             _http = http;
         }
-        public async Task<ICollection<ApiHome>> GetAllHomeDetailsAsync(HomeDetailParameters param)
+        public async Task<ApiHome> GetAllHomeDetailsAsync(HomeDetailParameters param)
         {
             var request = new RestRequest("Detail/Home", Method.GET ,DataFormat.Json);
             request.AddObject(param);
             
             try
             {
-                return await _http.SendRequestAsync<List<ApiHome>>(request);
+                return await _http.SendRequestAsync<ApiHome>(request);
             }
             catch(Exception e)
             {

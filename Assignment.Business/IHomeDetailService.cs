@@ -1,11 +1,10 @@
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Assignment.Core;
 
-namespace Assignment.Data
+namespace Assignment.Business
 {
-    public interface IHomeDetailRepository
+    public interface IHomeDetailService
     {
         Task<ApiHome> GetAllHomeDetailsAsync(HomeDetailParameters p);
     }
