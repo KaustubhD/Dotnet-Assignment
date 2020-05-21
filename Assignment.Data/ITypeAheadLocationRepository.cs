@@ -7,6 +7,6 @@ namespace Assignment.Data
 {
     public interface ITypeAheadLocationRepository
     {
-        Task<ICollection<Location>> GetAllLocationsAsync(LocationParameters p);
+        Task<ICollection<ApiTypeAheadLocation>> GetAllLocationsAsync(LocationParameters p);
     }
 }

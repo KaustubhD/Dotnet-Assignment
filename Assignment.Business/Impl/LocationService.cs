@@ -13,11 +13,11 @@ namespace Assignment.Business
         {
             _Locationrepo = repo;
         }
-        public async Task<List<Location>> GetAllLocationsAsync(LocationParameters param)
+        public async Task<List<ApiTypeAheadLocation>> GetAllLocationsAsync(LocationParameters param)
         {
             try
             {
-                return new List<Location>(await _Locationrepo.GetAllLocationsAsync(param));
+                return new List<ApiTypeAheadLocation>(await _Locationrepo.GetAllLocationsAsync(param));
             }
             catch(Exception e)
             {

@@ -2,7 +2,7 @@ using System;
 
 namespace Assignment.Core
 {
-    public class Location
+    public class ApiTypeAheadLocation
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -18,7 +18,7 @@ namespace Assignment.Core
         public bool HasShowCase { get; set; }
         public string BrandType { get; set; }
         
-        public Location()
+        public ApiTypeAheadLocation()
         {
 
         }
