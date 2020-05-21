@@ -9,10 +9,10 @@ namespace Assignment.API
 {
     [ApiController]
     [Route("v1/[controller]")]
-    public class AssignmentController: ControllerBase
+    public class TypeAheadController: ControllerBase
     {
         private readonly ILocationService _service;
-        public AssignmentController(ILocationService service)
+        public TypeAheadController(ILocationService service)
         {
             _service = service;
         }
