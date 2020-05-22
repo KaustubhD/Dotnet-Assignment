@@ -12,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Assignment.Root;
+using System.Text;
 
 namespace Assignment.API
 {
@@ -28,7 +29,9 @@ namespace Assignment.API
         public void ConfigureServices(IServiceCollection services)
         {
             DI.AddConfig(services);
-            services.AddControllers();
+            services.AddControllers().AddJsonOptions(options => {
+                options.JsonSerializerOptions.IgnoreNullValues = true;
+            });
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Assignment API", Version = "v1" });
