@@ -17,6 +17,8 @@ namespace Assignment.Root
             services.AddScoped<ILocationService, LocationService>();
             services.AddScoped<IHomeDetailRepository, HomeDetailRepository>();
             services.AddScoped<IHomeDetailService, HomeDetailService>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IUserService, UserService>();
             services.AddSingleton<IRestClientRepository, RestClientRepository>();
         }
     }
