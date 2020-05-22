@@ -20,4 +20,8 @@
 
 ## APIs implemented
 
-1. `GET /v1/Assignment/locations`
+**Note:** Explore all APIs available at `/swagger`
+
+1. `GET /v1/TypeAhead/locations`
+2. `GET /v1/HomeDetails/home`
+3. `POST /v1/User/create`
