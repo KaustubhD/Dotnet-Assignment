@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Assignment.Core;
 using RestSharp;
@@ -12,14 +13,27 @@ namespace Assignment.Data
         {
             _http = http;
         }
-        public async Task<ApiResultModelOfBoolean> CreateOneUserAsync(UserProfileRequiredDto profile)
+        public async Task<ApiResultModel<bool>> CreateOneUserAsync(UserProfileRequiredDto profile)
         {
             var request = new RestRequest("User/Create", Method.POST ,DataFormat.Json);
             request.AddJsonBody(profile);
             
             try
             {
-                return await _http.SendRequestAsync<ApiResultModelOfBoolean>(request);
+                return await _http.SendRequestAsync<ApiResultModel<bool>>(request);
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+        }
+        public async Task<ApiResultModel<List<UserProfile>>> GetProfileAsync(UserProfileDto loginObject)
+        {
+            var request = new RestRequest("User/Profile", Method.GET, DataFormat.Json);
+            request.AddObject(loginObject);
+            try
+            {
+                return await _http.SendRequestAsync<ApiResultModel<List<UserProfile>>>(request);
             }
             catch(Exception e)
             {
