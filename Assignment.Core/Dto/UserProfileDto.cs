@@ -3,13 +3,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Assignment.Core
 {
-    [AtLeastOne("UserId", "LogonName", ErrorMessage="One or more required properties were not supplied")]
-    public class UserProfileDto
+    public class UserProfileDto: UserBasicDto
     {
-        [Required]
-        public string Partnerid { get; set; }
-        public string UserId { get; set; }
-        public string LogonName { get; set; }
         [DefaultValue(false)]
         public bool returnPassword { get; set; }
         [DefaultValue(false)]
