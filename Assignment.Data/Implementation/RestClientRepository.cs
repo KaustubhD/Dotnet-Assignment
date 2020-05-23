@@ -18,6 +18,7 @@ namespace Assignment.Data
         }
         public async Task<T> SendRequestAsync<T>(RestRequest request)
         {
+            Console.WriteLine(_client.BuildUri(request));
             var response = await _client.ExecuteAsync<T>(request);
             if(response.StatusCode != HttpStatusCode.OK)
             {
