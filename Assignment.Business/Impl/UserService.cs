@@ -46,5 +46,16 @@ namespace Assignment.Business
                 throw e;
             }
         }
+        public Task<ApiResultModel<int>> CreateOneBookmarkAsync(BookmarkAttribute bookmark)
+        {
+            try
+            {
+                return _repo.CreateOneBookmarkAsync(bookmark);
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }

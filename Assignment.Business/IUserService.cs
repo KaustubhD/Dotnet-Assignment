@@ -9,5 +9,6 @@ namespace Assignment.Business
         Task<ApiResultModel<bool>> CreateOneUserAsync(UserProfileRequiredDto profile);
         Task<ApiResultModel<List<UserProfile>>> GetProfileAsync(UserProfileDto loginObject);
         Task<ApiResultModel<List<BookmarkAttribute>>> GetBookmarksAsync(UserBookmarksDto loginObject);
+        Task<ApiResultModel<int>> CreateOneBookmarkAsync(BookmarkAttribute bookmark);
     }
 }
