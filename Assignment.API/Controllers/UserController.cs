@@ -89,5 +89,33 @@ namespace Assignment.API
                 return BadRequest(e.Message);
             }
         }
+        [HttpPost]
+        [Route("createBookmark")]
+        public async Task<IActionResult> CreateOneBookmarkAsync([FromBody]BookmarkAttribute bookmark)
+        {
+            /*
+                {
+                "userId": "1234",
+                "contentTypeId": 3,
+                "contentId": 1,
+                "title": "DK Test4",
+                "url": "http://www.newhomesource.com",
+                "action": "Saved"
+                }
+            */
+            try
+            {
+                var res = await _service.CreateOneBookmarkAsync(bookmark);
+                if(!string.IsNullOrEmpty(res.ErrorMessage))
+                {
+                    throw new Exception(res.ErrorMessage);
+                }
+                return Ok(res);
+            }
+            catch(Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
     }
 }
