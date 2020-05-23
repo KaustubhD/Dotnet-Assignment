@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Assignment.Core;
 using Assignment.Data;
@@ -12,11 +13,22 @@ namespace Assignment.Business
         {
             _repo = repo;
         }
-        public Task<ApiResultModelOfBoolean> CreateOneUserAsync(UserProfileRequiredDto profile)
+        public Task<ApiResultModel<bool>> CreateOneUserAsync(UserProfileRequiredDto profile)
         {
             try
             {
                 return _repo.CreateOneUserAsync(profile);
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+        }
+        public Task<ApiResultModel<List<UserProfile>>> GetProfileAsync(UserProfileDto loginObject)
+        {
+            try
+            {
+                return _repo.GetProfileAsync(loginObject);
             }
             catch(Exception e)
             {
