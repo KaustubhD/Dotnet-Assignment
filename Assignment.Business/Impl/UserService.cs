@@ -35,5 +35,16 @@ namespace Assignment.Business
                 throw e;
             }
         }
+        public Task<ApiResultModel<List<BookmarkAttribute>>> GetBookmarksAsync(UserBookmarksDto loginObject)
+        {
+            try
+            {
+                return _repo.GetBookmarksAsync(loginObject);
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }
