@@ -71,5 +71,23 @@ namespace Assignment.API
                 return BadRequest(e.Message);
             }
         }
+        [HttpGet]
+        [Route("bookmarks")]
+        public async Task<IActionResult> GetBookmarksAsync([FromQuery]UserBookmarksDto loginObject)
+        {
+            try
+            {
+                var res = await _service.GetBookmarksAsync(loginObject);
+                if(!string.IsNullOrEmpty(res.ErrorMessage))
+                {
+                    throw new Exception(res.ErrorMessage);
+                }
+                return Ok(res);
+            }
+            catch(Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
     }
 }
