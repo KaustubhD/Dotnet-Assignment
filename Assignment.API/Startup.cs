@@ -12,7 +12,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Assignment.Root;
-using System.Text;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace Assignment.API
 {
@@ -29,8 +30,9 @@ namespace Assignment.API
         public void ConfigureServices(IServiceCollection services)
         {
             DI.AddConfig(services);
-            services.AddControllers().AddJsonOptions(options => {
-                options.JsonSerializerOptions.IgnoreNullValues = true;
+            services.AddControllers().AddNewtonsoftJson(options => {
+                options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
+                options.SerializerSettings.Converters.Add(new StringEnumConverter());
             });
             services.AddSwaggerGen(c =>
             {
