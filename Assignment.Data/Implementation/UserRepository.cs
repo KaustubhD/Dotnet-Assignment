@@ -40,5 +40,18 @@ namespace Assignment.Data
                 throw e;
             }
         }
+        public async Task<ApiResultModel<List<BookmarkAttribute>>> GetBookmarksAsync(UserBookmarksDto loginObject)
+        {
+            var request = new RestRequest("User/Bookmarks", Method.GET, DataFormat.Json);
+            request.AddObject(loginObject);
+            try
+            {
+                return await _http.SendRequestAsync<ApiResultModel<List<BookmarkAttribute>>>(request);
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }
