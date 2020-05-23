@@ -53,5 +53,23 @@ namespace Assignment.API
                 return BadRequest(e.Message);
             }
         }
+        [HttpGet]
+        [Route("profile")]
+        public async Task<IActionResult> GetProfileAsync([FromQuery]UserProfileDto loginObject)
+        {
+            try
+            {
+                var res = await _service.GetProfileAsync(loginObject);
+                if(!string.IsNullOrEmpty(res.ErrorMessage))
+                {
+                    throw new Exception(res.ErrorMessage);
+                }
+                return Ok(res);
+            }
+            catch(Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
     }
 }
