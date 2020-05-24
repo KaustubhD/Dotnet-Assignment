@@ -31,4 +31,5 @@
 3. `POST /v1/User/create`
 4. `GET /v1/User/profile`
 5. `GET /v1/User/Bookmarks`
-6. `GET /v1/User/CreateBookmark`
+6. `POST /v1/User/createBookmark`
+7. `POST /v1/User/updateBookmark`
