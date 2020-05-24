@@ -33,3 +33,4 @@
 5. `GET /v1/User/Bookmarks`
 6. `POST /v1/User/createBookmark`
 7. `POST /v1/User/updateBookmark`
+8. `GET /v1/User/deleteBookmark`
