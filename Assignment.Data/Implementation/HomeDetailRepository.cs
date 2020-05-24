@@ -13,7 +13,7 @@ namespace Assignment.Data
         {
             _http = http;
         }
-        public Task<ApiHome> GetAllHomeDetailsAsync(HomeDetailParameters param)
+        public Task<ApiHome> GetAllHomeDetailsAsync(HomeDetailDto param)
         {
             var request = new RestRequest("Detail/Home", Method.GET ,DataFormat.Json);
             request.AddObject(param);

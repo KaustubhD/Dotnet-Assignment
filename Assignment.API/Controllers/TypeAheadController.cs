@@ -19,7 +19,7 @@ namespace Assignment.API
 
         [HttpGet]
         [Route("locations")]
-        public async Task<IActionResult> GetTypeHeadHandler([FromQuery]LocationParameters param)
+        public async Task<IActionResult> GetTypeHeadHandler([FromQuery]LocationDto param)
         {
             try
             {

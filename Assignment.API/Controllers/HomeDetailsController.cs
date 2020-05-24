@@ -19,7 +19,7 @@ namespace Assignment.API
 
         [HttpGet]
         [Route("home")]
-        public async Task<IActionResult> GetHomeDetailsHandler([FromQuery]HomeDetailParameters param)
+        public async Task<IActionResult> GetHomeDetailsHandler([FromQuery]HomeDetailDto param)
         {
             try
             {

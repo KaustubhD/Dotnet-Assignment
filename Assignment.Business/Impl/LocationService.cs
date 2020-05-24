@@ -13,7 +13,7 @@ namespace Assignment.Business
         {
             _Locationrepo = repo;
         }
-        public async Task<List<ApiTypeAheadLocation>> GetAllLocationsAsync(LocationParameters param)
+        public async Task<List<ApiTypeAheadLocation>> GetAllLocationsAsync(LocationDto param)
         {
             try
             {

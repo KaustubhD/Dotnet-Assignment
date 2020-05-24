@@ -7,6 +7,6 @@ namespace Assignment.Data
 {
     public interface IHomeDetailRepository
     {
-        Task<ApiHome> GetAllHomeDetailsAsync(HomeDetailParameters p);
+        Task<ApiHome> GetAllHomeDetailsAsync(HomeDetailDto p);
     }
 }

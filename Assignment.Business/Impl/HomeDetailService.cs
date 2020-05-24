@@ -13,7 +13,7 @@ namespace Assignment.Business
         {
             _repo = repo;
         }
-        public async Task<ApiHome> GetAllHomeDetailsAsync(HomeDetailParameters param)
+        public async Task<ApiHome> GetAllHomeDetailsAsync(HomeDetailDto param)
         {
             try
             {

@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Assignment.Core
 {
-    public class LocationParameters
+    public class LocationDto
     {
         [Required]
         public int PartnerId { get; set; }

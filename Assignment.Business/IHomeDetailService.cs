@@ -6,6 +6,6 @@ namespace Assignment.Business
 {
     public interface IHomeDetailService
     {
-        Task<ApiHome> GetAllHomeDetailsAsync(HomeDetailParameters p);
+        Task<ApiHome> GetAllHomeDetailsAsync(HomeDetailDto p);
     }
 }

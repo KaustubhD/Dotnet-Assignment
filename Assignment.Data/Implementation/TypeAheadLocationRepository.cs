@@ -14,7 +14,7 @@ namespace Assignment.Data
             _http = http;
         }
 
-        public Task<List<ApiTypeAheadLocation>> GetAllLocationsAsync(LocationParameters param)
+        public Task<List<ApiTypeAheadLocation>> GetAllLocationsAsync(LocationDto param)
         {
             var request = new RestRequest("Typeahead/Locations", Method.GET ,DataFormat.Json);
             request.AddObject(param);
