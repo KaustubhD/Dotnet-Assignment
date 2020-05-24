@@ -79,5 +79,18 @@ namespace Assignment.Data
                 throw e;
             }
         }
+        public async Task<ApiResultModel<bool>> DeleteOneBookmarkAsync(int bookmarkId)
+        {
+            var request = new RestRequest("User/DeleteBookmark", Method.GET, DataFormat.Json);
+            request.AddQueryParameter("bookmarkId", bookmarkId.ToString());
+            try
+            {
+                return await _http.SendRequestAsync<ApiResultModel<bool>>(request);
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }
