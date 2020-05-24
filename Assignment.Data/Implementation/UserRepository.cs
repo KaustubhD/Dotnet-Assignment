@@ -66,5 +66,18 @@ namespace Assignment.Data
                 throw e;
             }
         }
+        public async Task<ApiResultModel<bool>> UpdateOneBookmarkAsync(BookmarkAttribute bookmark)
+        {
+            var request = new RestRequest("User/UpdateBookmark", Method.POST, DataFormat.Json);
+            request.AddJsonBody(bookmark);
+            try
+            {
+                return await _http.SendRequestAsync<ApiResultModel<bool>>(request);
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }
