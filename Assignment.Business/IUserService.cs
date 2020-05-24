@@ -10,5 +10,6 @@ namespace Assignment.Business
         Task<ApiResultModel<List<UserProfile>>> GetProfileAsync(UserProfileDto loginObject);
         Task<ApiResultModel<List<BookmarkAttribute>>> GetBookmarksAsync(UserBookmarksDto loginObject);
         Task<ApiResultModel<int>> CreateOneBookmarkAsync(BookmarkAttribute bookmark);
+        Task<ApiResultModel<bool>> UpdateOneBookmarkAsync(BookmarkAttribute bookmark);
     }
 }
