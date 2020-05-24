@@ -146,5 +146,23 @@ namespace Assignment.API
                 return BadRequest(e.Message);
             }
         }
+        [HttpGet]
+        [Route("deleteBookmark")]
+        public async Task<IActionResult> DeleteOneBookmarkAsync([FromQuery]int bookmarkId)
+        {
+            try
+            {
+                var res = await _service.DeleteOneBookmarkAsync(bookmarkId);
+                if(!res.Result)
+                {
+                    throw new Exception(res.ErrorMessage);
+                }
+                return Ok(res);
+            }
+            catch(Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
     }
 }
