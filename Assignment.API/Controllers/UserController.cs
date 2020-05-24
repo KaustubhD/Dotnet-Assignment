@@ -117,5 +117,34 @@ namespace Assignment.API
                 return BadRequest(e.Message);
             }
         }
+        [HttpPost]
+        [Route("updateBookmark")]
+        public async Task<IActionResult> UpdateOneBookmarkAsync([FromBody]BookmarkAttribute bookmark)
+        {
+            /*
+                {
+                "userId": "1234",
+                "contentTypeId": 3, // This doesn't change for some reason
+                "contentId": 1,
+                "title": "DK Test4---",
+                "url": "http://www.newhomesource.com",
+                "action": "Saved",
+                "notes": ["new",""home]
+                }
+            */
+            try
+            {
+                var res = await _service.UpdateOneBookmarkAsync(bookmark);
+                if(!res.Result)
+                {
+                    throw new Exception(res.ErrorMessage);
+                }
+                return Ok(res);
+            }
+            catch(Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
     }
 }
