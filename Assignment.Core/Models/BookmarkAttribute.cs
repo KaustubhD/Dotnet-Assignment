@@ -9,7 +9,7 @@ namespace Assignment.Core
     #nullable enable
     public class BookmarkAttribute
     {
-        public int? Id { get; set; }
+        public int Id { get; set; }
         [Required]
         public string UserId { get; set; }
         public string? FirstName { get; set; }
@@ -23,21 +23,16 @@ namespace Assignment.Core
             by the attribute on top
         */
         public string? ContentTypeName { get; set; }
-        // [Required]
         public int ContentId { get; set; }
-        // [Required]
         public string Title { get; set; }
-        // [Required]
         public string Url { get; set; }
-        [Required]
-        [DefaultValue("Saved")]
+        [Required] // Needed for form filling
+        [DefaultValue("Saved")] // Needed for displaying on the swagger page
         [JsonConverter(typeof(JsonStringEnumConverter))]
 
         public BookmarkActionType Action { get; set; }
         internal List<UserProfile>? SharedUsers { get; set; }
         internal List<BookmarkData>? BookmarkData { get; set; }
-
-        // only needed for creating or editing bookmarks
-        public string? Notes { get; set; }
+        public List<string> Notes { get; set; }
     }
 }
