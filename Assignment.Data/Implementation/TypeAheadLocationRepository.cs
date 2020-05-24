@@ -14,19 +14,12 @@ namespace Assignment.Data
             _http = http;
         }
 
-        public async Task<ICollection<ApiTypeAheadLocation>> GetAllLocationsAsync(LocationParameters param)
+        public Task<List<ApiTypeAheadLocation>> GetAllLocationsAsync(LocationParameters param)
         {
             var request = new RestRequest("Typeahead/Locations", Method.GET ,DataFormat.Json);
             request.AddObject(param);
             
-            try
-            {
-                return await _http.SendRequestAsync<List<ApiTypeAheadLocation>>(request);
-            }
-            catch(Exception e)
-            {
-                throw e;
-            }
+            return _http.SendRequestAsync<List<ApiTypeAheadLocation>>(request);
         }
     }
 }

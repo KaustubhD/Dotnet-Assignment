@@ -13,84 +13,47 @@ namespace Assignment.Data
         {
             _http = http;
         }
-        public async Task<ApiResultModel<bool>> CreateOneUserAsync(UserProfileRequiredDto profile)
+        public Task<ApiResultModel<bool>> CreateOneUserAsync(UserProfileRequiredDto profile)
         {
             var request = new RestRequest("User/Create", Method.POST ,DataFormat.Json);
             request.AddJsonBody(profile);
             
-            try
-            {
-                return await _http.SendRequestAsync<ApiResultModel<bool>>(request);
-            }
-            catch(Exception e)
-            {
-                throw e;
-            }
+            return _http.SendRequestAsync<ApiResultModel<bool>>(request);
         }
-        public async Task<ApiResultModel<List<UserProfile>>> GetProfileAsync(UserProfileDto loginObject)
+        public Task<ApiResultModel<List<UserProfile>>> GetProfileAsync(UserProfileDto loginObject)
         {
             var request = new RestRequest("User/Profile", Method.GET, DataFormat.Json);
             request.AddObject(loginObject);
-            try
-            {
-                return await _http.SendRequestAsync<ApiResultModel<List<UserProfile>>>(request);
-            }
-            catch(Exception e)
-            {
-                throw e;
-            }
+            
+            return _http.SendRequestAsync<ApiResultModel<List<UserProfile>>>(request);
         }
-        public async Task<ApiResultModel<List<BookmarkAttribute>>> GetBookmarksAsync(UserBookmarksDto loginObject)
+        public Task<ApiResultModel<List<BookmarkAttribute>>> GetBookmarksAsync(UserBookmarksDto loginObject)
         {
             var request = new RestRequest("User/Bookmarks", Method.GET, DataFormat.Json);
             request.AddObject(loginObject);
-            try
-            {
-                return await _http.SendRequestAsync<ApiResultModel<List<BookmarkAttribute>>>(request);
-            }
-            catch(Exception e)
-            {
-                throw e;
-            }
+
+            return _http.SendRequestAsync<ApiResultModel<List<BookmarkAttribute>>>(request);
         }
-        public async Task<ApiResultModel<int>> CreateOneBookmarkAsync(BookmarkAttribute bookmark)
+        public Task<ApiResultModel<int>> CreateOneBookmarkAsync(BookmarkAttribute bookmark)
         {
             var request = new RestRequest("User/CreateBookmark", Method.POST, DataFormat.Json);
             request.AddJsonBody(bookmark);
-            try
-            {
-                return await _http.SendRequestAsync<ApiResultModel<int>>(request);
-            }
-            catch(Exception e)
-            {
-                throw e;
-            }
+
+            return _http.SendRequestAsync<ApiResultModel<int>>(request);
         }
-        public async Task<ApiResultModel<bool>> UpdateOneBookmarkAsync(BookmarkAttribute bookmark)
+        public Task<ApiResultModel<bool>> UpdateOneBookmarkAsync(BookmarkAttribute bookmark)
         {
             var request = new RestRequest("User/UpdateBookmark", Method.POST, DataFormat.Json);
             request.AddJsonBody(bookmark);
-            try
-            {
-                return await _http.SendRequestAsync<ApiResultModel<bool>>(request);
-            }
-            catch(Exception e)
-            {
-                throw e;
-            }
+
+            return _http.SendRequestAsync<ApiResultModel<bool>>(request);
         }
-        public async Task<ApiResultModel<bool>> DeleteOneBookmarkAsync(int bookmarkId)
+        public Task<ApiResultModel<bool>> DeleteOneBookmarkAsync(int bookmarkId)
         {
             var request = new RestRequest("User/DeleteBookmark", Method.GET, DataFormat.Json);
             request.AddQueryParameter("bookmarkId", bookmarkId.ToString());
-            try
-            {
-                return await _http.SendRequestAsync<ApiResultModel<bool>>(request);
-            }
-            catch(Exception e)
-            {
-                throw e;
-            }
+
+            return _http.SendRequestAsync<ApiResultModel<bool>>(request);
         }
     }
 }

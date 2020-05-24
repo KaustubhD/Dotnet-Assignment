@@ -13,19 +13,12 @@ namespace Assignment.Data
         {
             _http = http;
         }
-        public async Task<ApiHome> GetAllHomeDetailsAsync(HomeDetailParameters param)
+        public Task<ApiHome> GetAllHomeDetailsAsync(HomeDetailParameters param)
         {
             var request = new RestRequest("Detail/Home", Method.GET ,DataFormat.Json);
             request.AddObject(param);
             
-            try
-            {
-                return await _http.SendRequestAsync<ApiHome>(request);
-            }
-            catch(Exception e)
-            {
-                throw e;
-            }
+            return _http.SendRequestAsync<ApiHome>(request);
         }
     }
 }
