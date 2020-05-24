@@ -68,5 +68,16 @@ namespace Assignment.Business
                 throw e;
             }
         }
+        public Task<ApiResultModel<bool>> DeleteOneBookmarkAsync(int bookmarkId)
+        {
+            try
+            {
+                return _repo.DeleteOneBookmarkAsync(bookmarkId);
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }
