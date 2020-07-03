@@ -2,6 +2,8 @@
 using Microsoft.Extensions.DependencyInjection;
 using Assignment.Data;
 using Assignment.Business;
+using Assignment.Business.GraphQL.Types;
+using Assignment.BUsiness.GraphQL.Queries;
 
 namespace Assignment.Root
 {
@@ -20,6 +22,8 @@ namespace Assignment.Root
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserService>();
             services.AddSingleton<IRestClientRepository, RestClientRepository>();
+            services.AddScoped<AppQuery>();
+            services.AddSingleton<LocationType>();
         }
     }
 }

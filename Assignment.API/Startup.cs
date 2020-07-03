@@ -14,6 +14,11 @@ using Microsoft.OpenApi.Models;
 using Assignment.Root;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using GraphQL;
+using Assignment.Business.GraphQL.Schemas;
+using GraphQL.Server;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
+using GraphQL.Server.Ui.Playground;
 
 namespace Assignment.API
 {
@@ -29,10 +34,23 @@ namespace Assignment.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IDependencyResolver>(s => new FuncDependencyResolver(s.GetRequiredService));
             DI.AddConfig(services);
+
+            
+            services.AddScoped<AppSchema>();
+
+            services.AddGraphQL(s => { s.ExposeExceptions = true; })
+                .AddGraphTypes(ServiceLifetime.Scoped);
+
             services.AddControllers().AddNewtonsoftJson(options => {
                 options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
                 options.SerializerSettings.Converters.Add(new StringEnumConverter());
+            });
+
+            services.Configure<KestrelServerOptions>(opts =>
+            {
+                opts.AllowSynchronousIO = true;
             });
             services.AddSwaggerGen(c =>
             {
@@ -61,6 +79,9 @@ namespace Assignment.API
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseGraphQL<AppSchema>();
+            app.UseGraphQLPlayground(options: new GraphQLPlaygroundOptions());
 
             app.UseEndpoints(endpoints =>
             {
