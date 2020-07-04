@@ -34,3 +34,19 @@
 6. `POST /v1/User/createBookmark`
 7. `POST /v1/User/updateBookmark`
 8. `GET /v1/User/deleteBookmark`
+
+
+
+Attempts to implement GraphQL at `/ui/playground`
+
+Refer the Docs tab to find all the supported queries
+
+
+1. Sample query
+    
+```
+    query location(args: {partnerId: 9383, searchTerm: "New York"}){
+        name,
+        id
+	}
+```
