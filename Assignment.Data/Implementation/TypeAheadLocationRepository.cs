@@ -29,12 +29,12 @@ namespace Assignment.Data
         }
         public List<ApiTypeAheadLocation> GetAllLocations(LocationDto param = null)
         {
-            if (param == null)
-                param = new LocationDto()
-                {
-                    PartnerId = 9383,
-                    SearchTerm = "Dallas"
-                };
+            //if (param == null)
+            //    param = new LocationDto()
+            //    {
+            //        PartnerId = 9383,
+            //        SearchTerm = "Dallas"
+            //    };
             var request = new RestRequest("Typeahead/Locations", Method.GET, DataFormat.Json);
             request.AddObject(param);
 

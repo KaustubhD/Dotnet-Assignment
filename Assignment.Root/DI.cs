@@ -24,6 +24,7 @@ namespace Assignment.Root
             services.AddSingleton<IRestClientRepository, RestClientRepository>();
             services.AddScoped<AppQuery>();
             services.AddSingleton<LocationType>();
+            services.AddSingleton<LocationDtoType>();
         }
     }
 }
